@@ -7,8 +7,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
-
+ 
 builder.Services.AddSignalR();
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials()
+            .WithOrigins("sebaprenovost.com");
+    });
+});
 
 builder.Logging.AddConsole();
 
@@ -30,6 +41,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles(); // Add this if not already present
 app.UseRouting();  
 app.UseAntiforgery();
+app.UseCors();
+
 
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
