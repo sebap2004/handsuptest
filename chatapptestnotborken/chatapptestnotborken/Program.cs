@@ -29,11 +29,11 @@ app.UseStaticFiles(); // Add this if not already present
 app.UseRouting();  
 app.UseAntiforgery();
 
-app.MapHub<ChatHub>("/chatHub"); 
-
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(chatapptestnotborken.Client._Imports).Assembly);
+
+app.MapHub<ChatHub>("/chatHub"); 
 
 app.Run();
