@@ -12,11 +12,12 @@ builder.Services.AddSignalR();
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(builder =>
+    options.AddDefaultPolicy(policy =>
     {
-        builder.AllowAnyMethod().AllowCredentials()
+        policy.WithOrigins("https://sebaprenovost.com")
             .AllowAnyHeader()
-            .SetIsOriginAllowed(_ => true);
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 
