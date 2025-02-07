@@ -17,7 +17,6 @@ builder.Services.AddCors(options =>
         builder.AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()
-            .WithOrigins("sebaprenovost.com")
             .AllowAnyOrigin();
     });
 });
@@ -41,8 +40,9 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles(); // Add this if not already present
 app.UseRouting();  
-app.UseAntiforgery();
 app.UseCors();
+app.UseAntiforgery();
+
 
 
 app.MapStaticAssets();
