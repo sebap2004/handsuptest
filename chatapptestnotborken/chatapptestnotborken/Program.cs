@@ -10,6 +10,8 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddSignalR();
 
+builder.Logging.AddConsole();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
