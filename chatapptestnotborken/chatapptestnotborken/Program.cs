@@ -25,11 +25,11 @@ else
 }
 
 app.UseHttpsRedirection();
-
-
+app.UseStaticFiles(); // Add this if not already present
+app.UseRouting();  
 app.UseAntiforgery();
 
-app.MapHub<ChatHub>("/chatHub");
+app.MapHub<ChatHub>("/chatHub"); 
 
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
