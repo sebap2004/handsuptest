@@ -43,7 +43,6 @@ app.UseCors();
 app.UseAntiforgery();
 
 
-app.MapBlazorHub();
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
