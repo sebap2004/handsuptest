@@ -17,7 +17,8 @@ builder.Services.AddCors(options =>
         builder.AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials()
-            .WithOrigins("sebaprenovost.com");
+            .WithOrigins("sebaprenovost.com")
+            .AllowAnyOrigin();
     });
 });
 
