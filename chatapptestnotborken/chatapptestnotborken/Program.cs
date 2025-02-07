@@ -14,10 +14,9 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("https://sebaprenovost.com")
-            .AllowAnyHeader()
+        policy.AllowAnyOrigin()
             .AllowAnyMethod()
-            .AllowCredentials();
+            .AllowAnyHeader();
     });
 });
 
@@ -42,7 +41,7 @@ app.UseStaticFiles(); // Add this if not already present
 app.UseRouting();  
 app.UseCors();
 app.UseAntiforgery();
-
+app.UseWebSockets();
 
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
